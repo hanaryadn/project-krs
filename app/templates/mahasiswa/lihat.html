@@ -1,0 +1,45 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="col-sm-4 col-sm-offset-4 page-header">
+    <h1>Daftar Mahasiswa</h1>
+</div>    
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+                <a href="{{url_for('input_mahasiswa')}}"><button type="button" class="btn btn-info">Tambah Mahasiswa</button></a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>NPM</th>
+                        <th>Nama</th>
+                        <th>TTL</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>Jurusan</th>
+                        <th>Dosen PA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for m in mahasiswa%}
+                    <tr>
+                        <td>{{m.npm}}</td>
+                        <td>{{m.nama}}</td>
+                        <td>{{m.ttl}}</td>
+                        <td>{{m.kelamin}}</td>
+                        <td>{{m.alamat}}</td>
+                        <td>{{m.jurusan}}</td>
+                        <td>{{m.pa}}</td>
+                        <td>
+                            <a href="{{url_for('edit_mahasiswa', id=m.id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="{{url_for('delete_mahasiswa', id=m.id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+{%endblock%}

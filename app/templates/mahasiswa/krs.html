@@ -1,0 +1,71 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>SKS</th>
+                    <th>Semester</th>
+                    <th>Dosen Pengampu</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {%for mk in matkul%}
+                <tr>
+                    <td>{{mk.kode}}</td>
+                    <td>{{mk.nama}}</td>
+                    <td>{{mk.sks}}</td>
+                    <td>{{mk.semester}}</td>
+                    <td>{{mk.dosen}}</td>
+                    
+                    <td>
+                        <a href="{{url_for('edit_matkul', id=mk.id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+                        
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>SKS</th>
+                    <th>Semester</th>
+                    <th>Dosen Pengampu</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {%for k in krs%}
+                <tr>
+                    <td>{{k.kode}}</td>
+                    <td>{{k.nama}}</td>
+                    <td>{{k.sks}}</td>
+                    <td>{{k.semester}}</td>
+                    <td>{{k.dosen}}</td>
+                    
+                    <td>
+                        <a href="{{url_for('edit_matkul', id=k.id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+                        
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}

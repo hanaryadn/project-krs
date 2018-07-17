@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+<!-- Tampil KRS -->
+<div class="col-sm-8 col-sm-offset-2 page-header">
+    <h1>KRS</h1>
+</div>
+<div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+                
+                <a href="{{url_for('index_mahasiswa')}}"><button type="button" class="btn btn-info">< Kembali</button></a>
+                
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Kode</th>
+                        <th>Nama</th>
+                        <th>SKS</th>
+                        <th>Semester</th>
+                        <th>Dosen Pengampu</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for k in krs%}
+                    <tr>
+                        <td>{{k.kode}}</td>
+                        <td>{{k.nama}}</td>
+                        <td>{{k.sks}}</td>
+                        <td>{{k.semester}}</td>
+                        <td>{{k.dosen}}</td>
+                        
+                        <td>
+                           <a href="{{url_for('hapus_matkul', id=k.id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                           
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {%endblock%}

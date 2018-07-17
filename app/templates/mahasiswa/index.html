@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="col-sm-6 col-sm-offset-2 page-header">
+    <h1>Info Mahasiswa</h1>
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>NPM</th>
+                        <th>Nama</th>
+                        <th>TTL</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>Jurusan</th>
+                        <th>Dosen PA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for m in mahasiswa%}
+                    <tr>
+                        <td>{{m.npm}}</td>
+                        <td>{{m.nama}}</td>
+                        <td>{{m.ttl}}</td>
+                        <td>{{m.kelamin}}</td>
+                        <td>{{m.alamat}}</td>
+                        <td>{{m.jurusan}}</td>
+                        <td>{{m.pa}}</td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+            
+            <ul class="list-group">
+                <li class="list-group-item active">Menu</a></li>
+                <li class="list-group-item"><a href="{{url_for('krs_mahasiswa', id=m.id)}}">Isi KRS</a></li>
+                <li class="list-group-item"><a href="{{url_for('lihat_krs')}}">Lihat KRS</a></li>
+                
+            </ul>
+            <a href="{{url_for('logout')}}"><button type="button" class="btn btn-danger"><font color="white">Log Out</font></button></a></button>
+            </div>
+                {%endfor%}
+                
+    </div>
+
+{%endblock%}
